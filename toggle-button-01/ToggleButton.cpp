@@ -1,3 +1,10 @@
+/****************************************************************************
+**
+** Copyright 2021 by Parham Oyan and Oleg Frolov
+** All rights reserved.
+**
+****************************************************************************/
+
 #include "ToggleButton.h"
 
 ToggleButton::ToggleButton(QWidget* parent): QCheckBox(parent) {
@@ -79,7 +86,7 @@ QVariantAnimation* ToggleButton::getIconWidthAnimation() {
 	return animation;
 }
 
-QRect ToggleButton::getBodyRect() const {
+const QRect ToggleButton::getBodyRect() const {
 	QRect bodyRect = rect();
 	int h = height();
 	int offsetY = h * .25;

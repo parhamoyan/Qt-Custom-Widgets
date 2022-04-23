@@ -1,3 +1,10 @@
+/****************************************************************************
+**
+** Copyright 2021 by Parham Oyan and Oleg Frolov
+** All rights reserved.
+**
+****************************************************************************/
+
 #pragma once
 
 #include "QtWidgets/QCheckBox"
@@ -20,16 +27,15 @@ public:
 	void setIconColor(QColor color) { iconColor = color; currentIconColor = color; }
 
 	// getters
-	QColor getBodyColor() const { return bodyColor; }
-	QColor getBodyHoverColor() const { return bodyHoverColor; }
-	QColor getIconColor() const { return iconColor; }
-	QRect getBodyRect() const;
-
-	virtual void paintEvent(QPaintEvent *event) override;
-	bool hitButton(const QPoint& pos) const { return contentsRect().contains(pos); }
+	const QColor getBodyColor() const { return bodyColor; }
+	const QColor getBodyHoverColor() const { return bodyHoverColor; }
+	const QColor getIconColor() const { return iconColor; }
+	const QRect getBodyRect() const;
 
 protected:
-	void resizeEvent(QResizeEvent* event);
+	virtual void resizeEvent(QResizeEvent* event) override;
+	virtual void paintEvent(QPaintEvent* event) override;
+	virtual bool hitButton(const QPoint& pos) const { return contentsRect().contains(pos); }
 
 private:
 	QColor bodyColor = QColor("#dddddd");
